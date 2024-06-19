@@ -39,6 +39,7 @@ if(results.length > 0)
 console.log(results);
 
 scoreLeftWrist = results[0].pose.keypoints[9].score;
+scoreRightWrist = results[0].pose.keypoints[10].score;
 
 RightWristX = results[0].pose.rightWrist.x;
 RightWristY = results[0].pose.rightWrist.y;
@@ -59,7 +60,8 @@ function draw() {
     stroke("#FFD700");
 
     
-    if (scoreLeftWrist > 0.2) {
+    
+    if (scoreLeftWrist > 0.1) {
         circle(LeftWristX, LeftWristY, 20);
 
         num_leftWrist = Number(LeftWristY);
@@ -73,14 +75,37 @@ function draw() {
     song2.stop();
     }
 
-    document.getElementById("song").innerHTML = "Song : " + song;
 
 }
+
+if (scoreRightWrist > 0.1) {
+    circle(RightWristX, RightWristY, 35);
+
+    
+if(song2.isPlaying() = false){
+song2.play();
+song1.stop();
+        } 
+
+    }
+
 }
 
 function play() 
 {
-    song.play();
-    song.setVolume(0.78);
-    song.rate(2);
-}
+   
+    if (scoreRightWrist > 0.1) {
+        circle(RightWristX, RightWristY, 35);
+    
+        
+    if(song2.isPlaying() = false){
+    song2.play();
+    song1.stop();
+            } 
+    
+        }
+    
+    song.isPlaying(true).play();
+    song.isPlaying(true).setVolume(0.78);
+    song.isPlaying(true).rate(1);
+    }
